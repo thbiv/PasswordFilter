@@ -1,7 +1,7 @@
 Function Get-AllDomainControllers {
     [CmdletBinding()]
     Param ()
-    $DCs = (Get-ADForest).Domains | %{ Get-ADDomainController -Filter * -Server $_ }
+    $DCs = (Get-ADForest).Domains | ForEach-Object { Get-ADDomainController -Filter * -Server $_ }
     $Output = @()
     ForEach ($Item in $DCs) {
         if ($item.domain -match "snda"){}
