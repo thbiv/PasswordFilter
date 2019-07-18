@@ -15,10 +15,10 @@ Task Testing Clean, Build, Test
 # Synopsis: Empty the _output and _testresults folders
 Task Clean {
     If (Test-Path -Path $OutputRoot) {
-        Get-ChildItem -Path $OutputRoot -Recurse | Remove-Item -Force
+        Get-ChildItem -Path $OutputRoot -Recurse | Remove-Item -Force -Recurse
     }
     If (Test-Path -Path $TestResultsRoot) {
-        Get-ChildItem -Path $TestResultsRoot -Recurse | Remove-Item -Force
+        Get-ChildItem -Path $TestResultsRoot -Recurse | Remove-Item -Force -Recurse
     }
 }
 

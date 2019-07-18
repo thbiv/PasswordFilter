@@ -2,7 +2,7 @@ Function Install-PasswordFilter {
     [CmdletBinding(SupportsShouldProcess)]
     Param (
         [Parameter(Mandatory=$False,Position=0)]
-        [string]$ServerName
+        [string[]]$ServerName
     )
     $BlackList = "\\sfhousanp01\it\Security_Team\Password_Filter\PWD-Blacklist\PassFiltExBlacklist.txt"
     $DLL = "\\sfhousanp01\it\Security_Team\Password_Filter\PWD-Blacklist\PassFiltEx.dll"
@@ -75,7 +75,7 @@ Function Install-PasswordFilter {
                     $Reg = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey('LocalMachine', $Target)
                     $Key = $reg.OpenSubKey($Subkey, $True)
                     $Arr = $key.GetValue($Value)
-                    If ($arr -contains "PassFiltEx") {
+                    If ($Arr -contains "PassFiltEx") {
                         Write-Verbose "PassFltEx filter entry is already present"
                     }
                     Else {
