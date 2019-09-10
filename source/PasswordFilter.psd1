@@ -22,7 +22,7 @@ CompanyName = ''
 Copyright = '2019'
 
 # Description of the functionality provided by this module
-Description = 'Module installing and maintaining an AD password filter'
+Description = 'Module for installing and maintaining an AD password filter'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.0'
@@ -62,7 +62,7 @@ PowerShellVersion = '5.0'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
-    'Get-PasswordFilterInfo'
+    'Get-PasswordFilterStatus'
     'Install-PasswordFilter'
     'Update-PasswordFilterList'
 )
