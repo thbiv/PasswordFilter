@@ -1,6 +1,7 @@
 Function GetAllDomainControllers {
     [CmdletBinding()]
     Param ()
-    $Output = Get-ADDomainController -filter {isReadOnly -eq $False} | Select-Object -ExpandProperty HostName
+    $Servers = Get-ADDomainController -filter {isReadOnly -eq $False} | Select-Object -ExpandProperty HostName
+    $Output = $Servers | Foreach-object {$_.split('.')[0]}
     Write-Output $Output
 }
