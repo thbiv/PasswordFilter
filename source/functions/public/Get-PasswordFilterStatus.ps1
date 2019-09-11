@@ -137,7 +137,7 @@ Function Get-PasswordFilterStatus {
             }
             $Obj = New-Object -TypeName PSObject -Property $OutputProps
             $Output += $Obj
-            Write-Output $Output
         }
+        Write-Output $Output
     }
 }
