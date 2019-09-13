@@ -1,7 +1,7 @@
 Function Update-PasswordFilterList {
     <#
     .SYNOPSIS
-        Updates the Blacklist text file on domain controllers.
+        Remotely Updates the Blacklist text file on domain controllers.
     .DESCRIPTION
         This command first checks to see if the Blacklist file is present. If it is, it gets a hash of the file and compares it to
         the hash of the master file. If they do not match, the master file is copied to the server, replacing the file that is already there.

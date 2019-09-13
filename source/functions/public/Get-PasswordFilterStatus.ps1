@@ -1,10 +1,10 @@
 Function Get-PasswordFilterStatus {
     <#
     .SYNOPSIS
-        Gets Password Filter status from domain controllers
+        Remotely Gets Password Filter status from domain controllers
     .DESCRIPTION
         Returns the Password Filter status of domain controllers as a PSObject.
-        The PSObject returned contains the following attributes.
+        The PSObject returned contains the following attributes:
 
         ServerName - The hostname of the server that the object describes.
         BlacklistPath - The UNC path to where the Blacklist file should be on the server.
@@ -14,6 +14,7 @@ Function Get-PasswordFilterStatus {
         DLLPath - The UNC path to where the DLL file should be on the server.
         DLLVersion - The version number of the DLL file. This is the version of the Password filter itself.
         Enabled - True is it is enabled, False if it is not. This checks the Notification Packages registry setting looking for PassFiltEx to be present.
+        UpgradeNeeded - True is the DLL needs to be upgraded. False if it does not. Checks the source DLL file's version and compares it with what is on the domain controller.
     .PARAMETER ServerName
         Server hostname or list of hostnames
     .EXAMPLE

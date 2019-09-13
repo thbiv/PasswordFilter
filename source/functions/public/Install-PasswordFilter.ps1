@@ -1,12 +1,12 @@
 Function Install-PasswordFilter {
     <#
     .SYNOPSIS
-        Installs the PassFiltEx AD Password Filter onto domain controllers.
+        Remotely Installs the PassFiltEx AD Password Filter onto domain controllers.
     .DESCRIPTION
         To install the PassFiltEx password filter, this command will:
         1. Copy the DLL file of the password filter (PassFiltEx.dll) to: C:\Windows\System32
         2. Copy the Blacklist text file (PassFiltExBlacklist.txt) to: C:\Windows\System32
-        3. Modified the Notification Packages registry entry at HKLM:\SYSTEM\CurrentControlSet\Control\LSA to include 'PassFiltEx'
+        3. Modify the Notification Packages registry entry at HKLM:\SYSTEM\CurrentControlSet\Control\LSA to include 'PassFiltEx'
         After all 3 steps are complete. The domain controller will need to be rebooted for the Password Filter to start working.
 
         Because this command does check to see if the files and registry entry is present already, this can be used to upgrade the password filter as well.

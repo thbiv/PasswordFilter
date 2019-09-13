@@ -4,7 +4,7 @@
 RootModule = 'PasswordFilter.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.3.7'
+ModuleVersion = '1.0.8'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
