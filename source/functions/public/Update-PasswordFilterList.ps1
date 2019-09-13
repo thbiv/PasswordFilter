@@ -42,7 +42,7 @@ Function Update-PasswordFilterList {
     } Else {
         $Targets += $(GetAllDomainControllers)
     }
-    $Blacklist = "\\sfhrsfile01\shared\Horsham-IT\Password_Filter\Production\PassFiltExBlacklist.txt"
+    $Blacklist = $((GetPasswordFilterSourcePaths).Blacklist)
     $BlacklistHash = Get-FileHash -Path $Blacklist
     ForEach ($Target in $Targets) {
         $TargetDir = "\\$Target\c$\windows\system32"

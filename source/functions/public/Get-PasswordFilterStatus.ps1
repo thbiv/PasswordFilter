@@ -45,9 +45,9 @@ Function Get-PasswordFilterStatus {
         [string[]]$ServerName
     )
     # Location of the Blacklist master file
-    $SourceBlackListPath = "\\sfhrsfile01\shared\Horsham-IT\Password_Filter\Production\PassFiltExBlacklist.txt"
+    $SourceBlackListPath = $((GetPasswordFilterSourcePaths).Blacklist)
     # Location of the source DLL file
-    $SourceDLLPath = "\\sfhrsfile01\shared\Horsham-IT\Password_Filter\Production\PassFiltEx.dll"
+    $SourceDLLPath = $((GetPasswordFilterSourcePaths).DLL)
     # Check if the Blacklist master file exists
     If (Test-Path -Path $SourceBlackListPath) {
         Write-Verbose "[PasswordFilter] Source Blacklist file exists"

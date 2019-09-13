@@ -41,9 +41,9 @@ Function Install-PasswordFilter {
         [string[]]$ServerName
     )
     # Location of the Blacklist master file
-    $BlackList = "\\sfhrsfile01\shared\Horsham-IT\Password_Filter\Production\PassFiltExBlacklist.txt"
+    $BlackList = $((GetPasswordFilterSourcePaths).Blacklist)
     # Location of the source DLL file
-    $DLL = "\\sfhrsfile01\shared\Horsham-IT\Password_Filter\Production\PassFiltEx.dll"
+    $DLL = $((GetPasswordFilterSourcePaths).DLL)
     # Get the hash of the Blacklist master file
     $BlacklistHash = Get-FileHash -Path $BlackList
     # Check if the Blacklist master file is present for copy
