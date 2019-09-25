@@ -42,8 +42,20 @@ Task Build {
         $_ | Get-Content | Add-Content -Path  $Dest_PSM1
     }
 
+    If (Test-Path -Path "$SourceRoot\en-US") {
+        Write-Host "Creating 'en-US' folder"
+        New-Item -Path "$OutputRoot\$ModuleName\en-US" -ItemType Directory | Out-Null
+        Write-Host "Copying about_help files"
+        Get-ChildItem -Path "$SourceRoot\en-US" -file | ForEach-Object {
+            Write-Host "Copying About_Help file: $($_.Name)"
+            Copy-Item -Path $_.FullName -Destination "$OutputRoot\$ModuleName\en-US\$($_.Name)" -Force
+        }
+    }
+
     Write-Host "Copying Module Manifest"
     Copy-Item -Path $Source_PSD1 -Destination $Dest_PSD1
+
+
 }
 
 # Synopsis: Test the Project
