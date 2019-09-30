@@ -124,19 +124,16 @@ Function Get-PasswordFilterStatus {
                 $PFEnabled = $False
             }
 
-            $OutputProps = [ordered]@{
-                'ServerName' = $Target
-                'BlackListPath' = $BlackListPath
-                'BlackListExists' = $BlacklistExists
-                'BlackListHash' = $BlacklistHash
-                'BlackListCurrent' = $HashMatches
-                'DLLPath' = $DLLPath
-                'DLLExists' = $DLLExists
-                'DLLVersion' = $DLLVersion
-                'Enabled' = $PFEnabled
-                'UpgradeNeeded' = $UpgradeNeeded
-            }
-            $Obj = New-Object -TypeName PSObject -Property $OutputProps
+            $Obj = New-Object -TypeName PasswordFilterStatus -ArgumentList $Target,
+                                                                           $BlackListPath,
+                                                                           $BlacklistExists,
+                                                                           $BlacklistHash,
+                                                                           $HashMatches,
+                                                                           $DLLPath,
+                                                                           $DLLExists,
+                                                                           $DLLVersion,
+                                                                           $UpgradeNeeded,
+                                                                           $PFEnabled
             $Output += $Obj
         }
         Write-Output $Output

@@ -51,12 +51,9 @@ Function Compare-PasswordFilterBlacklist {
                     } ElseIf ($Result.SideIndicator -eq '==') {
                         $Side = 'OnBoth'
                     }
-                    $Props = [ordered]@{
-                        'ServerName' = $Target
-                        'Token' = $($Result.InputObject)
-                        'Side' = $Side
-                    }
-                    $Obj = New-Object -TypeName PSObject -Property $Props
+                    $Obj = New-Object -TypeName PasswordFilterIssue -ArgumentList $Target,
+                                                                                  $($Result.InputObject),
+                                                                                  $Side
                     $Output += $Obj
                 }
             }

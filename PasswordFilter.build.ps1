@@ -52,6 +52,11 @@ Task Build {
         }
     }
 
+    If (Test-Path -Path "$SourceRoot\$ModuleName.format.ps1xml") {
+        Write-Host "Copying Formats File"
+        Copy-Item -Path "$SourceRoot\$ModuleName.format.ps1xml" -Destination "$OutputRoot\$ModuleName\$ModuleName.format.ps1xml"
+    }
+
     Write-Host "Copying Module Manifest"
     Copy-Item -Path $Source_PSD1 -Destination $Dest_PSD1
 
