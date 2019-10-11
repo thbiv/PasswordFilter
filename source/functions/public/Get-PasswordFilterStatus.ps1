@@ -32,7 +32,7 @@ Function Get-PasswordFilterStatus {
     .INPUTS
         String
     .OUTPUTS
-        PSObject
+        PasswordFilterStatus
     .LINK
         https://github.com/ryanries/PassFiltEx/releases
     .LINK

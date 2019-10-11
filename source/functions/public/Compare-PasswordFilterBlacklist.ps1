@@ -28,7 +28,7 @@ Function Compare-PasswordFilterBlacklist {
     .INPUTS
         String
     .OUTPUTS
-        PSObject
+        PasswordFilterBlacklistCompare
     .NOTES
         Written by Thomas Barratt
     #>
