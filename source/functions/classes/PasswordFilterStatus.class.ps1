@@ -1,22 +1,16 @@
 Class PasswordFilterStatus {
     [String]$ServerName
-    [string]$BlackListPath
     [bool]$BlackListExists
-    [string]$BlackListHash
     [bool]$BlackListCurrent
-    [string]$DLLPath
     [bool]$DLLExists
     [string]$DLLVersion
     [bool]$UpgradeNeeded
     [bool]$Enabled
 
-    PasswordFilterStatus ([String]$ServerName,[string]$BlackListPath,[bool]$BlackListExists,[string]$BlackListHash,[bool]$BlackListCurrent,[string]$DLLPath,[bool]$DLLExists,[string]$DLLVersion,[bool]$UpgradeNeeded,[bool]$Enabled) {
+    PasswordFilterStatus ([String]$ServerName,[bool]$BlackListExists,[bool]$BlackListCurrent,[bool]$DLLExists,[string]$DLLVersion,[bool]$UpgradeNeeded,[bool]$Enabled) {
         $this.ServerName = $ServerName
-        $this.BlackListPath = $BlackListPath
         $this.BlackListExists = $BlackListExists
-        $this.BlackListHash = $BlackListHash
         $this.BlackListCurrent = $BlackListCurrent
-        $this.DLLPath = $DLLPath
         $this.DLLExists = $DLLExists
         $this.DLLVersion = $DLLVersion
         $this.UpgradeNeeded = $UpgradeNeeded

@@ -64,8 +64,8 @@ Function Compare-PasswordFilterBlacklist {
                         $Side = 'OnBoth'
                     }
                     $Obj = New-Object -TypeName PasswordFilterBlacklistCompare -ArgumentList $Target,
-                                                                                  $($Result.InputObject),
-                                                                                  $Side
+                                                                                             $($Result.InputObject),
+                                                                                             $Side
                     $Output += $Obj
                 }
             }
