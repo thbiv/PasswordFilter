@@ -4,7 +4,7 @@
 RootModule = 'PasswordFilter.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.2.13'
+ModuleVersion = '1.3.14'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -66,6 +66,7 @@ FunctionsToExport = @(
     'Install-PasswordFilter'
     'Update-PasswordFilterList'
     'Compare-PasswordFilterBlacklist'
+    'Get-PasswordFilterLatestRelease'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
