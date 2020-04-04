@@ -12,13 +12,17 @@ $Script:Dest_PSM1 = "$OutputRoot\$ModuleName\$ModuleName.psm1"
 Task . Clean, Build, Test, Hash, Deploy
 Task Testing Clean, Build, Test
 
-# Synopsis: Empty the _output and _testresults folders
+# Synopsis: Empty the _output and _testresults folders or creat them if they do not exist. 
 Task Clean {
     If (Test-Path -Path $OutputRoot) {
         Get-ChildItem -Path $OutputRoot -Recurse | Remove-Item -Force -Recurse
+    } Else {
+        New-Item -Path $OutputRoot -ItemType Directory -Force
     }
     If (Test-Path -Path $TestResultsRoot) {
         Get-ChildItem -Path $TestResultsRoot -Recurse | Remove-Item -Force -Recurse
+    } Else {
+        New-Item -Path $TestResultsRoot -ItemType Directory -Force
     }
 }
 
