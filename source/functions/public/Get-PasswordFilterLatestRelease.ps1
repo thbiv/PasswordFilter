@@ -1,16 +1,6 @@
 Function Get-PasswordFilterLatestRelease {
     <#
-    .SYNOPSIS
-        Retrieves data on the latest release of PassFiltEx on Github.
-    .DESCRIPTION
-        Uses Github's Release API to get information on the latest release of the PassFiltEx AD password filter.
-        The information retrieved is the release version and the download URL.
-    .EXAMPLE
-        PS C:\> Get-PasswordFilterLatestRelease
-    .INPUTS
-        None
-    .OUTPUTS
-        PSObject
+    .EXTERNALHELP PasswordFilter-help.xml
     #>
     [CmdletBinding()]
     Param ()

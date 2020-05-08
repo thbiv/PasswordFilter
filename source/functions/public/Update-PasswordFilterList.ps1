@@ -1,35 +1,6 @@
 Function Update-PasswordFilterList {
     <#
-    .SYNOPSIS
-        Remotely Updates the Blacklist text file on domain controllers.
-    .DESCRIPTION
-        This command first checks to see if the Blacklist file is present. If it is, it gets a hash of the file and compares it to
-        the hash of the master file. If they do not match, the master file is copied to the server, replacing the file that is already there.
-        If the file does not already exist on the server, or if the hash matches with the master file, the file copy is not executed.
-    .PARAMETER ServerName
-        Server hostname or list of hostnames
-    .EXAMPLE
-        PS C:\> Update-PasswordFilterList.ps1 -ServerName dc01
-
-        This example will update the Blacklist text file on dc01 if the file does not match the master file.
-    .EXAMPLE
-        PS C:\> Update-PasswordFilterList.ps1 -ServerName dc01,dc02,dc03
-
-        This example will update the blacklist file on dc01,dc02, and dc03 if the file does not match the master file.
-    .EXAMPLE
-        PS C:\> Update-PasswordFilterList.ps1
-
-        This example will update the blacklist file on all writable domain controllers in the domain if the file does not match the master file.
-    .INPUTS
-        string
-    .OUTPUTS
-        None
-    .LINK
-        https://github.com/ryanries/PassFiltEx/releases
-    .LINK
-        https://github.com/ryanries/PassFiltEx/blob/master/README.md
-    .NOTES
-        Written by Thomas Barratt
+    .EXTERNALHELP PasswordFilter-help.xml
     #>
     [CmdletBinding(SupportsShouldProcess)]
     Param (
