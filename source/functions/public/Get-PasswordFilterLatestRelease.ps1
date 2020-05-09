@@ -11,11 +11,8 @@ Function Get-PasswordFilterLatestRelease {
         'UseBasicParsing' = $True
     }
     $Response = Invoke-RestMethod @Params
-    $Props = @{
-        'Name' = $($Response.name)
-        'Version' = $(($Response.name).TrimStart('v'))
-        'PublishedDate' = [datetime]$($Response.published_at)
-        'DownloadURL' = $($Response.assets.browser_download_url)
-    }
-    Write-Output $(New-Object -TypeName PSObject -Property $Props)
+    Write-Output $(New-Object -TypeName PassFiltExRelease -ArgumentList $($Response.name),
+                                                                        [version]$(($Response.name).TrimStart('v')),
+                                                                        [datetime]$($Response.published_at),
+                                                                        $($Response.assets.browser_download_url))
 }

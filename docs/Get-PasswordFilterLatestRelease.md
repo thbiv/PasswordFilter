@@ -37,7 +37,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### None
 ## OUTPUTS
 
-### PSObject
+### PassFiltExRelease
 ## NOTES
 
 ## RELATED LINKS
