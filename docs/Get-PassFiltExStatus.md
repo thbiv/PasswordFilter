@@ -5,7 +5,7 @@ online version: https://github.com/ryanries/PassFiltEx/releases
 schema: 2.0.0
 ---
 
-# Get-PasswordFilterStatus
+# Get-PassFiltExStatus
 
 ## SYNOPSIS
 Remotely Gets Password Filter status from domain controllers
@@ -13,7 +13,7 @@ Remotely Gets Password Filter status from domain controllers
 ## SYNTAX
 
 ```
-Get-PasswordFilterStatus [[-ServerName] <String[]>] [<CommonParameters>]
+Get-PassFiltExStatus [[-ServerName] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -38,21 +38,21 @@ Checks the source DLL file's version and compares it with what is on the domain 
 
 ### EXAMPLE 1
 ```
-.\Get-PasswordFilterStatus.ps1 -ServerName dc01
+Get-PassFiltExStatus -ServerName dc01
 ```
 
 This example will get the Password Filter status for dc01
 
 ### EXAMPLE 2
 ```
-.\Get-PasswordFilterStatus.ps1 -ServerName dc01,dc02,dc03
+Get-PassFiltExStatus -ServerName dc01,dc02,dc03
 ```
 
 This example will get the Password Filter status for the servers dc01, dc02, and dc03
 
 ### EXAMPLE 3
 ```
-.\Get-PasswordFilterStatus.ps1
+Get-PassFiltExStatus
 ```
 
 This example will get the Password Filter status for all writable domain controllers in the domain.

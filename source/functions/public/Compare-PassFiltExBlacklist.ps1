@@ -1,4 +1,4 @@
-Function Compare-PasswordFilterBlacklist {
+Function Compare-PassFiltExBlacklist {
     <#
     .EXTERNALHELP PasswordFilter-help.xml
     #>

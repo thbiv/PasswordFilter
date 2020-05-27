@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Compare-PasswordFilterBlacklist
+# Compare-PassFiltExBlacklist
 
 ## SYNOPSIS
 Compares a server's Password Filter Blacklist file to the master file and returns the differences.
@@ -13,7 +13,7 @@ Compares a server's Password Filter Blacklist file to the master file and return
 ## SYNTAX
 
 ```
-Compare-PasswordFilterBlacklist [[-ServerName] <String[]>] [-IncludeEqual] [<CommonParameters>]
+Compare-PassFiltExBlacklist [[-ServerName] <String[]>] [-IncludeEqual] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -32,14 +32,14 @@ Side - Tells which side the token exists on.
 
 ### EXAMPLE 1
 ```
-Compare-PasswordFilterBlacklist -ServerName dc01
+Compare-PassFiltExBlacklist -ServerName dc01
 ```
 
 This example will compare the blacklist file on the server 'dc01' with the source blacklist file.
 
 ### EXAMPLE 2
 ```
-Compare-PasswordFilterBlacklist -ServerName dc01,dc02,dc03
+Compare-PassFiltExBlacklist -ServerName dc01,dc02,dc03
 ```
 
 This example will compare the blackfile files on 'dc01', 'dc02', and 'dc03' with the source blacklist file.

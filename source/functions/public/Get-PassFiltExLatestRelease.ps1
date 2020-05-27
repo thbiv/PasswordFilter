@@ -1,4 +1,4 @@
-Function Get-PasswordFilterLatestRelease {
+Function Get-PassFiltExLatestRelease {
     <#
     .EXTERNALHELP PasswordFilter-help.xml
     #>

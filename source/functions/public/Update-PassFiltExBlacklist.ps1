@@ -1,4 +1,4 @@
-Function Update-PasswordFilterList {
+Function Update-PassFiltExBlacklist {
     <#
     .EXTERNALHELP PasswordFilter-help.xml
     #>

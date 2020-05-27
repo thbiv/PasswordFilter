@@ -5,7 +5,7 @@ online version: https://github.com/ryanries/PassFiltEx/releases
 schema: 2.0.0
 ---
 
-# Install-PasswordFilter
+# Install-PassFiltEx
 
 ## SYNOPSIS
 Remotely Installs the PassFiltEx AD Password Filter onto domain controllers.
@@ -13,7 +13,7 @@ Remotely Installs the PassFiltEx AD Password Filter onto domain controllers.
 ## SYNTAX
 
 ```
-Install-PasswordFilter [[-ServerName] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Install-PassFiltEx [[-ServerName] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -33,21 +33,21 @@ Because this command does check to see if the files and registry entry is presen
 
 ### EXAMPLE 1
 ```
-.\Install-PasswordFilter.ps1 -ServerName dc01
+Install-PassFiltEx -ServerName dc01
 ```
 
 This example will install the password filter onto the domain controller named dc01.
 
 ### EXAMPLE 2
 ```
-.\Install-PasswordFilter.ps1 -ServerName dc01,dc02,dc03
+Install-PassFiltEx -ServerName dc01,dc02,dc03
 ```
 
 This example will install the password filter on the 3 listed domain controllers, dc01,dc02,dc03.
 
 ### EXAMPLE 3
 ```
-.\Install-PasswordFilter.ps1
+Install-PassFiltEx
 ```
 
 This example will install the password filter on all writable domain controllers in the current domain.

@@ -1,4 +1,4 @@
-Function Install-PasswordFilter {
+Function Install-PassFiltEx {
     <#
     .EXTERNALHELP PasswordFilter-help.xml
     #>

@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-PasswordFilterLatestRelease
+# Get-PassFiltExLatestRelease
 
 ## SYNOPSIS
 Retrieves data on the latest release of PassFiltEx on Github.
@@ -13,7 +13,7 @@ Retrieves data on the latest release of PassFiltEx on Github.
 ## SYNTAX
 
 ```
-Get-PasswordFilterLatestRelease [<CommonParameters>]
+Get-PPassFiltExLatestRelease [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,7 +24,7 @@ The information retrieved is the release version and the download URL.
 
 ### EXAMPLE 1
 ```
-Get-PasswordFilterLatestRelease
+Get-PassFiltExLatestRelease
 ```
 
 ## PARAMETERS

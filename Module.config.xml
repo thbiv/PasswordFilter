@@ -1,0 +1,22 @@
+<config>
+  <deployment>
+    <repository>PSLocalGallery</repository>
+    <onlinehelp>
+    </onlinehelp>
+  </deployment>
+  <manifest>
+    <guid>fccae12b-98a3-40ca-9fcb-0073b926c22a</guid>
+    <author>Thomas Barratt</author>
+    <moduleversion>2.0.26</moduleversion>
+    <description>Module for installing and maintaining an AD password filter</description>
+    <copyright>2019-2020</copyright>
+    <companyname>THBIV</companyname>
+  </manifest>
+  <requiredmodules>
+    <module name="InvokeBuild" Repository="PSGallery" />
+    <module name="Pester" Repository="PSGallery" RequiredVersion="4.10.1" />
+    <module name="PSScriptAnalyzer" Repository="PSGallery" />
+    <module name="PSProjects" Repository="PSLocalGallery" />
+    <module name="platyPS" Repository="PSGallery" />
+  </requiredmodules>
+</config>

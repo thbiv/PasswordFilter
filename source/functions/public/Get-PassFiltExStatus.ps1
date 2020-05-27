@@ -1,4 +1,4 @@
-Function Get-PasswordFilterStatus {
+Function Get-PassFiltExStatus {
     <#
     .EXTERNALHELP PasswordFilter-help.xml
     #>

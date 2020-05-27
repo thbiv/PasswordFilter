@@ -5,7 +5,7 @@ online version: https://github.com/ryanries/PassFiltEx/releases
 schema: 2.0.0
 ---
 
-# Update-PasswordFilterList
+# Update-PassFiltExBlacklist
 
 ## SYNOPSIS
 Remotely Updates the Blacklist text file on domain controllers.
@@ -13,7 +13,7 @@ Remotely Updates the Blacklist text file on domain controllers.
 ## SYNTAX
 
 ```
-Update-PasswordFilterList [[-ServerName] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Update-PassFiltExBlacklist [[-ServerName] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -27,21 +27,21 @@ If the file does not already exist on the server, or if the hash matches with th
 
 ### EXAMPLE 1
 ```
-Update-PasswordFilterList.ps1 -ServerName dc01
+Update-PassFiltExBlacklist -ServerName dc01
 ```
 
 This example will update the Blacklist text file on dc01 if the file does not match the master file.
 
 ### EXAMPLE 2
 ```
-Update-PasswordFilterList.ps1 -ServerName dc01,dc02,dc03
+Update-PassFiltExBlacklist -ServerName dc01,dc02,dc03
 ```
 
 This example will update the blacklist file on dc01,dc02, and dc03 if the file does not match the master file.
 
 ### EXAMPLE 3
 ```
-Update-PasswordFilterList.ps1
+Update-PassFiltExBlacklist
 ```
 
 This example will update the blacklist file on all writable domain controllers in the domain if the file does not match the master file.

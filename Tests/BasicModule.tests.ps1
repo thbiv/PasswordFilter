@@ -27,7 +27,6 @@ Describe "Powershell validation" {
     }
 }
 
-<#
 Add-Type -AssemblyName System.Drawing
 Describe 'PSSA Standard Rules' {
 	$Scripts = Get-ChildItem $Path -Include *.ps1, *.psm1, *.psd1 -Recurse
@@ -46,7 +45,6 @@ Describe 'PSSA Standard Rules' {
 		}
 	}
 }
-#>
 
 Describe 'Module Information' {
     Context 'Manifest Testing' {
