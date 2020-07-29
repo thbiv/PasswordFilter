@@ -1,21 +1,20 @@
 Function Get-PassFiltExStatus {
-    <#
-    .EXTERNALHELP PasswordFilter-help.xml
-    #>
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory=$False,Position=0)]
-        [string[]]$ServerName
+        [string[]]$ServerName,
+
+        [Parameter(Mandatory=$True)]
+        [string]$SourceDLLPath,
+
+        [Parameter(Mandatory=$True)]
+        [string]$SourceBlacklistPath
     )
-    # Location of the Blacklist master file
-    $SourceBlackListPath = $((GetPasswordFilterSourcePaths).Blacklist)
-    # Location of the source DLL file
-    $SourceDLLPath = $((GetPasswordFilterSourcePaths).DLL)
-    # Check if the Blacklist master file exists
-    If (Test-Path -Path $SourceBlackListPath) {
+    # Check if the Source Blacklist file and the Source DLL file exists
+    If ((Test-Path -Path $SourceBlacklistPath) -and (Test-Path -Path $SourceDLLPath)) {
         Write-Verbose "[PasswordFilter] Source Blacklist file exists"
         # Get the file hash for the Blacklist master file
-        $SourceBlacklistHash = Get-FileHash -Path $SourceBlackListPath
+        $SourceBlacklistHash = Get-FileHash -Path $SourceBlacklistPath
         $Targets = @()
         # If the ServerName parameter is used, set the targets to the value of the parameter.
         # If no parameter is used, programatically find all Domain Controllers.
@@ -96,5 +95,7 @@ Function Get-PassFiltExStatus {
             $Output += $Obj
         }
         Write-Output $Output
+    } Else {
+        Throw "Either the Source DLL or Source Blacklit file does not exist"
     }
 }

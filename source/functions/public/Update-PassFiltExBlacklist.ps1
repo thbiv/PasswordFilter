@@ -1,11 +1,11 @@
 Function Update-PassFiltExBlacklist {
-    <#
-    .EXTERNALHELP PasswordFilter-help.xml
-    #>
     [CmdletBinding(SupportsShouldProcess)]
     Param (
         [Parameter(Mandatory=$False,Position=0)]
-        [string[]]$ServerName
+        [string[]]$ServerName,
+
+        [Parameter(Mandatory=$True)]
+        [string]$SourceBlacklistPath
     )
     $Targets = @()
     If ($ServerName) {
@@ -13,8 +13,7 @@ Function Update-PassFiltExBlacklist {
     } Else {
         $Targets += $(GetAllDomainControllers)
     }
-    $Blacklist = $((GetPasswordFilterSourcePaths).Blacklist)
-    $BlacklistHash = Get-FileHash -Path $Blacklist
+    $BlacklistHash = Get-FileHash -Path $SourceBlacklistPath
     ForEach ($Target in $Targets) {
         $TargetDir = "\\$Target\c$\windows\system32"
         If(!(Test-Path -Path $(Join-Path -Path $TargetDir -ChildPath 'PassFiltExBlacklist.txt'))){
@@ -29,7 +28,7 @@ Function Update-PassFiltExBlacklist {
                 Write-Verbose "[PasswordFilter][$Target][BlacklistFile] Payload and Target Hashes do not match"
                 If ($PSCmdlet.ShouldProcess("$Target","Copy File: PassFiltExBlacklist.txt")) {
                     Try {
-                        Copy-Item -Path $Blacklist -Destination $TargetDir -ErrorAction Stop
+                        Copy-Item -Path $SourceBlacklistPath -Destination $TargetDir -ErrorAction Stop
                     } Catch {
                         $ErrorMessage = $_.Exception.Message
                         Write-Warning $ErrorMessage

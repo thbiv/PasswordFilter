@@ -1,22 +1,21 @@
 Function Install-PassFiltEx {
-    <#
-    .EXTERNALHELP PasswordFilter-help.xml
-    #>
     [CmdletBinding(SupportsShouldProcess)]
     Param (
         [Parameter(Mandatory=$False,Position=0)]
-        [string[]]$ServerName
+        [string[]]$ServerName,
+
+        [Parameter(Mandatory=$True)]
+        [string]$SourceDLLPath,
+
+        [Parameter(Mandatory=$True)]
+        [string]$SourceBlacklistPath
     )
-    # Location of the Blacklist master file
-    $BlackList = $((GetPasswordFilterSourcePaths).Blacklist)
-    # Location of the source DLL file
-    $DLL = $((GetPasswordFilterSourcePaths).DLL)
-    # Get the hash of the Blacklist master file
-    $BlacklistHash = Get-FileHash -Path $BlackList
     # Check if the Blacklist master file is present for copy
-    If (Test-Path -Path $Blacklist) {
+    If (Test-Path -Path $SourceBlacklistPath) {
+        # Get the hash of the Blacklist master file
+        $BlacklistHash = Get-FileHash -Path $SourceBlacklistPath
         # Check if the source DLL file is present for copy
-        If (Test-Path -Path $DLL) {
+        If (Test-Path -Path $SourceDLLPath) {
             $Targets = @()
             # If the ServerName parameter is used, set the targets to the value of the parameter.
             # If no parameter is used, programatically find all Domain Controllers.
@@ -43,12 +42,12 @@ Function Install-PassFiltEx {
                         } Else {
                             Write-Verbose "[PasswordFilter][$Target][BlacklistFile] Payload and Target Hashes do not match"
                             If ($PSCmdlet.ShouldProcess("$Target","Copy File: PassFiltExBlacklist.txt")) {
-                                Copy-Item -Path $BlackList -Destination $TargetDir -ErrorAction Stop
+                                Copy-Item -Path $SourceBlacklistPath -Destination $TargetDir -ErrorAction Stop
                             }
                         }
                     } Else {
                         If ($PSCmdlet.ShouldProcess("$Target","Copy File: PassFiltExBlacklist.txt")) {
-                            Copy-Item -Path $BlackList -Destination $TargetDir -ErrorAction Stop
+                            Copy-Item -Path $SourceBlacklistPath -Destination $TargetDir -ErrorAction Stop
                         }
                     }
                     # Test if the DLL file exists. If it does not exist, copy the file.
@@ -62,12 +61,12 @@ Function Install-PassFiltEx {
                         } Else {
                             Write-Verbose "[PasswordFilter][$Target][DLLFile] DLL file version mismatch"
                             If ($PSCmdlet.ShouldProcess("$Target","Copy File: PassFiltEx.dll")) {
-                                Copy-Item -Path $DLL -Destination $TargetDir -ErrorAction Stop
+                                Copy-Item -Path $SourceDLLPath -Destination $TargetDir -ErrorAction Stop
                             }
                         }
                     } Else {
                         If ($PSCmdlet.ShouldProcess("$Target","Copy File: PassFiltEx.dll")) {
-                            Copy-Item -Path $DLL -Destination $TargetDir -ErrorAction Stop
+                            Copy-Item -Path $SourceDLLPath -Destination $TargetDir -ErrorAction Stop
                         }
                     }
                     # Enable the Password Filter using the registry.
@@ -90,9 +89,9 @@ Function Install-PassFiltEx {
                 }
             }
         }  Else {
-            Write-Warning -Message "[PasswordFilter] Cannot Find: $DLL"
+            Write-Warning -Message "[PasswordFilter] Cannot Find: $SourceDLLPath"
         }
     } Else {
-        Write-Warning -Message "[PasswordFilter] Cannot Find: $Blacklist"
+        Write-Warning -Message "[PasswordFilter] Cannot Find: $SourceBlacklistPath"
     }
 }

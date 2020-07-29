@@ -1,7 +1,7 @@
 ---
 external help file: PasswordFilter-help.xml
 Module Name: PasswordFilter
-online version: https://github.com/ryanries/PassFiltEx/releases
+online version: 
 schema: 2.0.0
 ---
 
@@ -13,7 +13,8 @@ Remotely Updates the Blacklist text file on domain controllers.
 ## SYNTAX
 
 ```
-Update-PassFiltExBlacklist [[-ServerName] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Update-PassFiltExBlacklist [[-ServerName] <String[]>] -SourceBlacklistPath <String> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -63,16 +64,15 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+### -SourceBlacklistPath
+The path to the source blacklist file.
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
-Aliases: wi
+Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -94,6 +94,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
@@ -107,8 +123,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Written by Thomas Barratt
 
 ## RELATED LINKS
-
-[https://github.com/ryanries/PassFiltEx/releases](https://github.com/ryanries/PassFiltEx/releases)
-
-[https://github.com/ryanries/PassFiltEx/blob/master/README.md](https://github.com/ryanries/PassFiltEx/blob/master/README.md)
 

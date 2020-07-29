@@ -13,7 +13,7 @@ Retrieves data on the latest release of PassFiltEx on Github.
 ## SYNTAX
 
 ```
-Get-PPassFiltExLatestRelease [<CommonParameters>]
+Get-PassFiltExLatestRelease [<CommonParameters>]
 ```
 
 ## DESCRIPTION

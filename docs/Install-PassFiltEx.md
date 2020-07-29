@@ -1,7 +1,7 @@
 ---
 external help file: PasswordFilter-help.xml
 Module Name: PasswordFilter
-online version: https://github.com/ryanries/PassFiltEx/releases
+online version: 
 schema: 2.0.0
 ---
 
@@ -13,7 +13,8 @@ Remotely Installs the PassFiltEx AD Password Filter onto domain controllers.
 ## SYNTAX
 
 ```
-Install-PassFiltEx [[-ServerName] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Install-PassFiltEx [[-ServerName] <String[]>] -SourceDLLPath <String> -SourceBlacklistPath <String> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -69,16 +70,30 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+### -SourceBlacklistPath
+The path to the source blacklist file.
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
-Aliases: wi
+Aliases:
 
-Required: False
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SourceDLLPath
+The path to the source DLL file.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -100,6 +115,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
@@ -113,8 +144,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Written by Thomas Barratt
 
 ## RELATED LINKS
-
-[https://github.com/ryanries/PassFiltEx/releases](https://github.com/ryanries/PassFiltEx/releases)
-
-[https://github.com/ryanries/PassFiltEx/blob/master/README.md](https://github.com/ryanries/PassFiltEx/blob/master/README.md)
 

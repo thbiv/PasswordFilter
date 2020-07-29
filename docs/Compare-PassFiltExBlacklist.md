@@ -13,7 +13,8 @@ Compares a server's Password Filter Blacklist file to the master file and return
 ## SYNTAX
 
 ```
-Compare-PassFiltExBlacklist [[-ServerName] <String[]>] [-IncludeEqual] [<CommonParameters>]
+Compare-PassFiltExBlacklist [[-ServerName] <String[]>] -SourceBlacklistPath <String> [-IncludeEqual]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -46,6 +47,21 @@ This example will compare the blackfile files on 'dc01', 'dc02', and 'dc03' with
 
 ## PARAMETERS
 
+### -IncludeEqual
+Using this switch will make the command display Tokens that are equal instead of just the differences.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -ServerName
 The name of the domain controller that you wish to compare the Blacklist on.
 
@@ -61,17 +77,17 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -IncludeEqual
-Using this switch will make the command display Tokens that are equal instead of just the differences.
+### -SourceBlacklistPath
+The path to the source blacklist.
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: Named
-Default value: False
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

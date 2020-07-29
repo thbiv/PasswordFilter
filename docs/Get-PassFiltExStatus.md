@@ -1,7 +1,7 @@
 ---
 external help file: PasswordFilter-help.xml
 Module Name: PasswordFilter
-online version: https://github.com/ryanries/PassFiltEx/releases
+online version: 
 schema: 2.0.0
 ---
 
@@ -13,7 +13,8 @@ Remotely Gets Password Filter status from domain controllers
 ## SYNTAX
 
 ```
-Get-PassFiltExStatus [[-ServerName] <String[]>] [<CommonParameters>]
+Get-PassFiltExStatus [[-ServerName] <String[]>] -SourceDLLPath <String> -SourceBlacklistPath <String>
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -74,6 +75,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -SourceBlacklistPath
+The path to the source blacklist file.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SourceDLLPath
+The path to the source DLL file.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
@@ -87,8 +118,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Written By Thomas Barratt
 
 ## RELATED LINKS
-
-[https://github.com/ryanries/PassFiltEx/releases](https://github.com/ryanries/PassFiltEx/releases)
-
-[https://github.com/ryanries/PassFiltEx/blob/master/README.md](https://github.com/ryanries/PassFiltEx/blob/master/README.md)
 
