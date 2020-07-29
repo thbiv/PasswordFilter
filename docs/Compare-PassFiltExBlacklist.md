@@ -1,7 +1,7 @@
 ---
 external help file: PasswordFilter-help.xml
 Module Name: PasswordFilter
-online version:
+online version: https://github.com/thbiv/PasswordFilter/blob/master/docs/Compare-PassFiltExBlacklist.md
 schema: 2.0.0
 ---
 
