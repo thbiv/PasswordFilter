@@ -1,22 +1,24 @@
 <config>
   <deployment>
-    <repository>PSLocalGallery</repository>
-    <onlinehelp>
-    </onlinehelp>
+    <repository>PSGallery</repository>
+    <filehash>C:\Users\thbarratt\Documents\FileHashData\PasswordFilter</filehash>
+    <testresults>C:\Users\thbarratt\Documents\TestResults\PasswordFilter</testresults>
   </deployment>
   <manifest>
     <guid>fccae12b-98a3-40ca-9fcb-0073b926c22a</guid>
     <author>Thomas Barratt</author>
     <moduleversion>2.0.26</moduleversion>
-    <description>Module for installing and maintaining an AD password filter</description>
-    <copyright>2019-2020</copyright>
-    <companyname>THBIV</companyname>
+    <description>A module to install and manage the PassFiltEx password filter</description>
+    <copyright>2019-2020 Thomas Barratt</copyright>
+    <projecturi>https://github.com/thbiv/PasswordFilter</projecturi>
+    <licenseuri>https://github.com/thbiv/PasswordFilter/blob/master/LICENSE</licenseuri>
+    <releasenotes>https://github.com/thbiv/PasswordFilter/blob/master/Release-Notes.md</releasenotes>
+    <tags>PasswordFilter,PassFiltEx,AD,Active,Directory,Windows</tags>
   </manifest>
   <requiredmodules>
     <module name="InvokeBuild" Repository="PSGallery" />
     <module name="Pester" Repository="PSGallery" RequiredVersion="4.10.1" />
     <module name="PSScriptAnalyzer" Repository="PSGallery" />
-    <module name="PSProjects" Repository="PSLocalGallery" />
     <module name="platyPS" Repository="PSGallery" />
   </requiredmodules>
 </config>
